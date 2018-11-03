@@ -74,7 +74,8 @@ echo
 
 #Copy Current
 echo "Creating archive..."
-sudo tar -cpzf "${rootBackupDir}/backup_${timestamp}.tar.gz" -c "${rootBackupDir}/Current/" 1 2>${rootBackupDir}/tar.log
+cd "${rootBackupDir}"
+sudo tar -cpzf "./backup_${timestamp}.tar.gz" -c "Current/" 1 2>${rootBackupDir}/tar.log
 echo "Archive created at ${rootBackupDir}/backup_${timestamp}.tar.gz"
 echo 
 
