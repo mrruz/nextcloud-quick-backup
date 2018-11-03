@@ -9,7 +9,7 @@ web_directory="/var/www/html/nextcloud/"
 # TODO: data directory
 data_directory="/path/to/nextcloud/data"
 # TODO: Your web server user
-web_user="www-data"
+webUser="www-data"
 # TODO: The directory where you store the Nextcloud backups
 root_backup_dir="/path/to/backup/directory"
 
@@ -41,7 +41,7 @@ fi
 # Put Nextcloud in maintenance mode
 echo "Turn on maintenance mode for Nextcloud..."
 cd "${web_directory}"
-sudo -u "${web_user}" php occ maintenance:mode --on
+sudo -u "${webUser}" php occ maintenance:mode --on
 cd ~
 echo "Done"
 echo
@@ -67,7 +67,7 @@ sleep 2s
 # Take Nextcloud out of maintenance mode
 echo "Turn off maintenance mode for Nextcloud..."
 cd "${web_directory}"
-sudo -u "${web_user}" php occ maintenance:mode --off
+sudo -u "${webUser}" php occ maintenance:mode --off
 cd ~
 echo "Done"
 echo
