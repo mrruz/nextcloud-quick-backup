@@ -86,14 +86,14 @@ echo "Reviewing backups for cleanup..."
 echo "Backups to keep (zero is infinite): " ${maxNrOfBackups}
 if (( ${maxNrOfBackups} != 0 ))
 then	
-	nrOfBackups=$(ls -l --ignore Current ${rootBackupDir} | grep -c backup_*)
+	nrOfBackups=$(ls -l --ignore Current ${rootBackupDir} | grep -c "backup_*")
 	echo "Backups found: " ${nrOfBackups}
 	if (( ${nrOfBackups} > ${maxNrOfBackups} ))
 	then
 		echo "Removing old backups..."
 		ls -l -r --ignore Current ${rootBackupDir} | tail -$(( nrOfBackups - maxNrOfBackups )) | while read dirToRemove; do
 		echo "${dirToRemove}"
-		#rm -r ${rootBackupDir}/${dirToRemove}
+		rm -r ${rootBackupDir}/${dirToRemove}
 		echo "Done"
 		echo
     done
